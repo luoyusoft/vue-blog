@@ -43,13 +43,13 @@ export default {
           title: '',
           content: '<p style="color: black">该文章未公开，查看内容需要提供密码</p>',
           onOk: () => {
-            this.$router.push({ path: '/article/' + article.id })
+            this.$router.push({ path: '/article/' + article.articleId })
           },
           onCancel: () => {
           }
         })
       } else {
-        this.$router.push({ path: '/article/' + article.id })
+        this.$router.push({ path: '/article/' + article.articleId })
       }
     }
   }

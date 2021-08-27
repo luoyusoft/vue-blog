@@ -8,7 +8,7 @@
 <!--          </section-title>-->
           <iv-carousel autoplay loop :autoplay-speed="6000" arrow="always" class="carousel">
             <iv-carousel-item v-for="(item,index) in carouselArticleList" :key="index">
-              <a :href="'/article/'+item.id" style="position: relative;">
+              <a :href="'/article/'+item.articleId" style="position: relative;">
                 <img width="100%" :src="item.cover" :title="item.title" alt="" class="carousel-img">
 <!--                <a :href="'/article/'+item.id" v-html="item.title" style="margin-top:10px;display:block;text-align:center">{{item.title}}</a>-->
                 <span v-html="item.title" style="font-size:16px;color: #f7f9fe;width:90%;position: absolute; bottom: 150%; left: 5%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">item.title</span>

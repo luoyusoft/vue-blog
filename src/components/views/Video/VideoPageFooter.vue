@@ -1,6 +1,6 @@
 <template>
   <div>
-    <social-section :type="'Video'" :postId="postId"></social-section>
+    <social-section :type="'Video'" :videoId="videoId"></social-section>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     'social-section': SocialSection
   },
   props: {
-    postId: Number
+    videoId: String
   }
 }
 </script>

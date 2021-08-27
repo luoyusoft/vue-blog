@@ -1,7 +1,7 @@
 <template>
   <div class="article-page-header">
     <div class="tags">
-      <iv-tag :color="tag.id | mapTagColor" v-for="(tag) in article.tagList" :key="tag.id" style="margin-right: 5px;">{{tag.name}}</iv-tag>
+      <iv-tag :color="tag.tagId | mapTagColor" v-for="(tag) in article.tagList" :key="tag.tagId" style="margin-right: 5px;">{{tag.name}}</iv-tag>
     </div>
     <p class="title">{{article.title}}</p>
     <iv-row>
@@ -33,10 +33,10 @@ export default {
   },
   mixins: [mixin],
   methods: {
-    updateArticle (post) {
-      this.$http.updateArticle(post.id).then((response) => {
+    updateArticle (article) {
+      this.$http.updateArticle(article.articleId).then((response) => {
         if (response && response.code === 200) {
-          post.likeNum += 1
+          article.likeNum += 1
           this.$Message.success('点赞成功')
         }
       }).catch((error) => {

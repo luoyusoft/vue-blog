@@ -4,7 +4,7 @@
       <iv-col :xs="24" :sm="24" :md="24" :lg="17">
         <div class="layout-left" style="margin-bottom: 50px;">
           <friendlink-page-header></friendlink-page-header>
-          <friendlink-page-content v-for="friendLink in friendLinkList" :friendLink="friendLink" :key="friendLink.id"></friendlink-page-content>
+          <friendlink-page-content v-for="friendLink in friendLinkList" :friendLink="friendLink" :key="friendLink.friendLinkId"></friendlink-page-content>
           <friendlink-page-footer style="clear: both"></friendlink-page-footer>
         </div>
       </iv-col>

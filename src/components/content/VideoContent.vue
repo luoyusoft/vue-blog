@@ -13,7 +13,7 @@
 <!--          <div style="background: white;height: 40px;line-height: 40px;">-->
 <!--            <a style="margin-left: 20px" target="_blank" :href="video.videoUrl">下载</a>-->
 <!--          </div>-->
-          <video-page-footer :postId="video.id"></video-page-footer>
+          <video-page-footer :videoId="video.videoId"></video-page-footer>
         </div>
       </iv-col>
       <iv-col :xs="0" :sm="0" :md="0" :lg="7">

@@ -3,11 +3,11 @@
     <panel :title="'热读榜'">
       <div slot="content" class="content">
         <div class="top">
-          <a :href="'/article/' + topHotRead.id">
+          <a :href="'/article/' + topHotRead.articleId">
 <!--            <p class="title" >{{topHotRead.title | textLineBreak(20)}}</p>-->
             <p class="title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{topHotRead.title}}</p>
             <div class="tags">
-              <iv-tag  :color="tag.id | mapTagColor" v-for="(tag)  in topHotRead.tagList" :key="tag.id">{{tag.name}}</iv-tag>
+              <iv-tag  :color="tag.tagId | mapTagColor" v-for="(tag)  in topHotRead.tagList" :key="tag.tagId">{{tag.name}}</iv-tag>
             </div>
             <p class="info">
               <span class="time">{{topHotRead.createTime | socialDate}}</span>
@@ -22,8 +22,8 @@
           </a>
         </div>
         <ul class="others">
-          <li v-for="hotRead in hotReadList" :key="hotRead.id">
-            <a :href="'/article/' +hotRead.id">
+          <li v-for="hotRead in hotReadList" :key="hotRead.articleId">
+            <a :href="'/article/' + hotRead.articleId">
 <!--              <p class="title">{{hotRead.title | textLineBreak(20)}}</p>-->
               <p class="title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{hotRead.title}}</p>
               <p class="info">
