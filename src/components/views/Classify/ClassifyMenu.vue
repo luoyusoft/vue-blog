@@ -4,27 +4,27 @@
 <!--      <span class="title">一级：</span>-->
       <span class="class">
         <a class="active" data-level="1" @click="choseLevel(categorys[0].parentId, $event)">全</a>
-        <a class="name" :id="'id' + category_level1.id" :data-level="category_level1.rank"
+        <a class="name" :id="'id' + category_level1.categoryId" :data-level="category_level1.rank"
            @click="choseLevel(category_level1, $event)"
-           v-for="category_level1 in this.categorys" :key="category_level1.id">{{ category_level1.name }}</a>
+           v-for="category_level1 in this.categorys" :key="category_level1.categoryId">{{ category_level1.name }}</a>
       </span>
     </p>
     <p class="level level-two" v-if="sub_category !== undefined">
 <!--      <span class="title">二级：</span>-->
       <span class="class">
         <a class="active" data-level="2" @click="choseLevel(sub_category[0].parentId, $event)">全</a>
-        <a class="name" :id="'id' + category_level2.id" :data-level="category_level2.rank"
+        <a class="name" :id="'id' + category_level2.categoryId" :data-level="category_level2.rank"
            @click="choseLevel(category_level2, $event)"
-           v-for="category_level2 in this.sub_category" :key="category_level2.id">{{ category_level2.name}}</a>
+           v-for="category_level2 in this.sub_category" :key="category_level2.categoryId">{{ category_level2.name}}</a>
       </span>
     </p>
     <p class="level level-three" v-if="sub_sub_category !== undefined">
 <!--      <span class="title">三级：</span>-->
       <span class="class">
         <a class="active" data-level="3" @click="choseLevel(sub_sub_category[0].parentId, $event)">全</a>
-        <a class="name" :id="'id' + category_level3.id" :data-level="category_level3.rank"
+        <a class="name" :id="'id' + category_level3.categoryId" :data-level="category_level3.rank"
            @click="choseLevel(category_level3, $event)"
-           v-for="category_level3 in this.sub_sub_category" :key="category_level3.id">{{ category_level3.name }}</a>
+           v-for="category_level3 in this.sub_sub_category" :key="category_level3.categoryId">{{ category_level3.name }}</a>
       </span>
     </p>
   </div>
@@ -61,7 +61,7 @@ export default {
       // 更新子菜单
       let level = parseInt(event.target.dataset.level)
       if (category instanceof Object) {
-        this.selectCategory(category.id)
+        this.selectCategory(category.categoryId)
         if (level >= 0) {
           // 选择了某个类别
           if (category.children && category.children.length > 0) {
@@ -100,7 +100,7 @@ export default {
       event.target.classList.add('active')
       // 更新url地址
       this.$router.push({
-        query: merge(this.$route.query, {'categoryId': category.id})
+        query: merge(this.$route.query, {'categoryId': category.categoryId})
       })
     },
     setDefaultCategory (categoryId) {
@@ -110,10 +110,10 @@ export default {
         if (categoryId === null || categoryId === undefined || isNaN(categoryId)) return null
         for (let index = 0; index < categorys.length; index++) {
           let category = categorys[index]
-          if (category.id === selectCategoryId) {
+          if (category.categoryId === selectCategoryId) {
             // 如果id相同，表示命中，记录该category和category的id
             recursiveCategorys.push(category)
-            recursiveCategoryIds.push(category.id)
+            recursiveCategoryIds.push(category.categoryId)
             return category
           } else if (category.children && category.children.length > 0) {
             // 如果id不同，表示没命中，则在其sub_category中寻找
@@ -175,8 +175,8 @@ export default {
           }
           return
         }
-        newSelectedRecursiveCategorys.map((id) => {
-          let target = document.getElementById('id' + id)
+        newSelectedRecursiveCategorys.map((categoryId) => {
+          let target = document.getElementById('id' + categoryId)
           let pNode = target.parentNode
           let activeNode = pNode.querySelector('.active')
           if (activeNode) {

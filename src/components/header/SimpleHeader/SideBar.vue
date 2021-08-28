@@ -35,18 +35,18 @@
           </div>
           <ul class="nav-menu" v-show="showArticle" style="margin-left: 10px;">
             <!-- 类别导航 -->
-            <li class="nav-dropdown-container" v-for="category_level1 in articleCategoryList" :key="category_level1.id">
+            <li class="nav-dropdown-container" v-for="category_level1 in articleCategoryList" :key="category_level1.categoryId">
               <iv-icon type="ios-remove"></iv-icon>&nbsp;
-              <a class="nav-link" :href="'/articles?categoryId='+category_level1.id" >{{category_level1.name}}<span class="arrow"></span>
+              <a class="nav-link" :href="'/articles?categoryId='+category_level1.categoryId" >{{category_level1.name}}<span class="arrow"></span>
               </a>
               <ul class="nav-dropdown">
-                <li v-for="category_level2 in category_level1.children" :key="category_level2.id">
+                <li v-for="category_level2 in category_level1.children" :key="category_level2.categoryId">
                   <iv-icon type="ios-remove"></iv-icon>
-                  <a class="nav-link" :href="'/articles?categoryId='+category_level2.id" >{{ category_level2.name}}</a>
+                  <a class="nav-link" :href="'/articles?categoryId='+category_level2.categoryId" >{{ category_level2.name}}</a>
                   <ul class="nav-dropdown">
-                    <li v-for="category_level3 in category_level2.children"  :key="category_level3.id">
+                    <li v-for="category_level3 in category_level2.children"  :key="category_level3.categoryId">
                       <iv-icon type="ios-remove"></iv-icon>&nbsp;
-                      <a class="nav-link" :href="'/articles?categoryId='+category_level3.id" >{{ category_level3.name }}</a>
+                      <a class="nav-link" :href="'/articles?categoryId='+category_level3.categoryId" >{{ category_level3.name }}</a>
                     </li>
                   </ul>
                 </li>
@@ -222,7 +222,7 @@ export default {
       let router = {}
       router.name = category.category_type
       router.params = {}
-      router.params['id'] = category.id
+      router.params['categoryId'] = category.categoryId
       return router
     },
     toggleSideBar () {

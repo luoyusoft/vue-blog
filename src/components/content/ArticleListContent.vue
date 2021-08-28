@@ -8,7 +8,7 @@
                                :categorys="articleCategoryList"
                                :defaultCategory="selected_category"
                                :mainTitle="'文章'" :sub-title="'随便读读'" ></article-list-header>
-          <article-list-cell v-for="article in articleList" :article="article" :key="article.id"></article-list-cell>
+          <article-list-cell v-for="article in articleList" :article="article" :key="article.articleId"></article-list-cell>
           <browse-more @browseMore="browseMore" :noMoreData="noMoreData" ref="browseMore"></browse-more>
         </div>
       </iv-col>
@@ -81,7 +81,7 @@ export default {
       params.module = 0
       this.$http.listCategorys(params).then((response) => {
         if (response && response.code === 200) {
-          this.articleCategoryList = treeDataTranslate(response.data)
+          this.articleCategoryList = treeDataTranslate(response.data, 'categoryId')
         }
       })
     },

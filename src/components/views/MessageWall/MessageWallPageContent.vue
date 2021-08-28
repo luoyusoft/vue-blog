@@ -18,7 +18,7 @@
       <div class="stack">
         <iv-icon size="22" color="white" type="ios-chatbubbles" style="float: left"></iv-icon>
         <p style="color: white;font-size: 18px;padding-left: 28px;padding-top: 4px;margin-bottom: 30px">{{ totalCount }}条留言</p>
-        <messagewall-page-list-cell v-if="refresh" v-for="messagewall in messagewallList" :replyMessageWall="replyMessageWall" :messagewall="messagewall" :key="messagewall.id"></messagewall-page-list-cell>
+        <messagewall-page-list-cell v-if="refresh" v-for="messagewall in messagewallList" :replyMessageWall="replyMessageWall" :messagewall="messagewall" :key="messagewall.messagewallId"></messagewall-page-list-cell>
         <browse-more @browseMore="listMessageWalls(false)" :noMoreData="noMoreData" ref="browseMore"></browse-more>
       </div>
     </div>
@@ -96,8 +96,6 @@ export default {
           this.currentPage = 1
           this.listMessageWalls(true)
           this.reload()
-        } else {
-          this.$Message.error(response.msg)
         }
       }).catch((error) => {
         console.log(error)

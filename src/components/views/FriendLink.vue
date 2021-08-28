@@ -2,7 +2,7 @@
   <div class="friend-link">
     <panel :title="'友链'">
       <ul class="link-list" slot="content">
-        <li v-for="friendLink in friendLinkList" :key="friendLink.id">
+        <li v-for="friendLink in friendLinkList" :key="friendLink.friendLinkId">
           <a :href="friendLink.url" target="_blank">
             <img :src="friendLink.avatar" alt="">
             <div class="right">

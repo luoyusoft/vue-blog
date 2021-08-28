@@ -21,7 +21,7 @@
 <!--              :boxShadow="false"-->
 <!--            />-->
           </article-page-content>
-          <article-page-footer :postId="article.id"></article-page-footer>
+          <article-page-footer :articleId="article.articleId"></article-page-footer>
         </div>
       </iv-col>
       <iv-col :xs="0" :sm="0" :md="0" :lg="7">
@@ -75,7 +75,7 @@ export default {
   },
   created () {
     let params = {
-      id: this.$route.params.articleId
+      articleId: this.$route.params.articleId
     }
     this.$http.getArticleOpen(params).then((response) => {
       if (response && response.code === 200) {

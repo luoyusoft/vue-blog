@@ -139,9 +139,9 @@ http.listHotReads = () => {
 /**
  * 文章点赞
  */
-http.updateArticle = (id) => {
+http.updateArticle = (articleId) => {
   return http({
-    url: http.adornUrl('/article/' + id),
+    url: http.adornUrl('/article/' + articleId),
     method: 'put',
     data: http.adornData()
   })
@@ -162,9 +162,9 @@ http.getVideo = (videoId) => {
 /**
  * 视频点赞
  */
-http.updateVideo = (id) => {
+http.updateVideo = (videoId) => {
   return http({
-    url: http.adornUrl('/video/' + id),
+    url: http.adornUrl('/video/' + videoId),
     method: 'put',
     data: http.adornData()
   })
@@ -202,6 +202,17 @@ http.listCategorys = (params) => {
     url: http.adornUrl('/operation/listcategories'),
     method: 'get',
     params: http.adornParams(params)
+  })
+}
+
+/**
+ * 获取分类列表
+ */
+http.listCategorys = () => {
+  return http({
+    url: http.adornUrl('/operation/allcategories'),
+    method: 'get',
+    params: http.adornParams()
   })
 }
 

@@ -7,7 +7,7 @@
 <!--            <p class="title">{{topRecommend.title | textLineBreak(20)}}</p>-->
             <p class="title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{topRecommend.title}}</p>
             <div class="tags">
-              <iv-tag  :color="tag.id | mapTagColor" v-for="(tag) in topRecommend.tagList" :key="tag.id">{{tag.name}}</iv-tag>
+              <iv-tag  :color="tag.tagId | mapTagColor" v-for="(tag) in topRecommend.tagList" :key="tag.tagId">{{tag.name}}</iv-tag>
             </div>
             <p class="info">
               <span class="time">{{topRecommend.createTime | socialDate}}</span>
@@ -23,7 +23,7 @@
           </a>
         </div>
         <ul class="others">
-          <li v-for="recommend in recommendList" :key="recommend.id">
+          <li v-for="recommend in recommendList" :key="recommend.recommendId">
             <a :href="'/' + recommend.uri + '/' +recommend.linkId">
 <!--              <p class="title">{{recommend.title | textLineBreak(20)}}</p>-->
               <p class="title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">{{recommend.title}}</p>

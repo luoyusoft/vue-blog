@@ -8,7 +8,7 @@
                                :categorys="categoryList"
                                :defaultCategory="selected_category"
                                :mainTitle="'视频'" :sub-title="'随便看看'" ></video-list-header>
-          <video-list-cell v-for="video in videoList" :video="video" :key="video.id"></video-list-cell>
+          <video-list-cell v-for="video in videoList" :video="video" :key="video.videoId"></video-list-cell>
           <browse-more style="clear: both" @browseMore="browseMore" :noMoreData="noMoreData"  ref="browseMore"></browse-more>
         </div>
       </iv-col>
@@ -82,7 +82,7 @@ export default {
       params.module = 1
       this.$http.listCategorys(params).then((response) => {
         if (response && response.code === 200) {
-          this.categoryList = treeDataTranslate(response.data)
+          this.categoryList = treeDataTranslate(response.data, 'categoryId')
         }
       })
     },

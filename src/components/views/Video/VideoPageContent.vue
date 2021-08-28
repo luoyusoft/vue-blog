@@ -66,10 +66,10 @@ export default {
   },
   mixins: [mixin],
   methods: {
-    updateVideo (post) {
-      this.$http.updateVideo(post.id).then((response) => {
+    updateVideo (video) {
+      this.$http.updateVideo(video.videoId).then((response) => {
         if (response && response.code === 200) {
-          post.likeNum += 1
+          video.likeNum += 1
           this.$Message.success('点赞成功')
         }
       }).catch((error) => {

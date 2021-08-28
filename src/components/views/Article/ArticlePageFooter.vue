@@ -1,7 +1,7 @@
 <template>
   <div class="article-page-footer">
     <license-tag></license-tag>
-    <social-section :type="'Article'" :postId="postId"></social-section>
+    <social-section :type="'Article'" :articleId="articleId"></social-section>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     'social-section': SocialSection
   },
   props: {
-    postId: Number
+    articleId: String
   }
 }
 </script>

@@ -10,10 +10,10 @@
             </h4>
             <div class="tags">
               <span class="special" v-if="article.top" title="置顶">置顶</span>
-              <iv-tag :color="tag.id | mapTagColor" :key="tag.id" type="border" v-for ="(tag) in article.tagList" style="margin-right: 5px;background-color: rgba(0,0,0,0)!important;">{{tag.name}}</iv-tag>
+              <iv-tag :color="tag.tagId | mapTagColor" :key="tag.tagId" type="border" v-for ="(tag) in article.tagList" style="margin-right: 5px;background-color: rgba(0,0,0,0)!important;">{{tag.name}}</iv-tag>
             </div>
 <!--            <p class="desc" v-html="article.description">{{article.description | filterHtml | textLineBreak(70) }}</p>-->
-<!--            <p class="desc"><a :href="'/article/'+article.id"> 查看更多-->
+<!--            <p class="desc"><a :href="'/article/'+article.articleId"> 查看更多-->
 <!--              <iv-icon type="md-arrow-dropright"></iv-icon>-->
 <!--            </a></p>-->
             <p class="operate_info">
@@ -87,13 +87,13 @@ export default {
           title: '',
           content: '<p style="color: black">该文章未公开，查看内容需要提供密码</p>',
           onOk: () => {
-            this.$router.push({ path: '/article/' + article.id })
+            this.$router.push({ path: '/article/' + article.articleId })
           },
           onCancel: () => {
           }
         })
       } else {
-        this.$router.push({ path: '/article/' + article.id })
+        this.$router.push({ path: '/article/' + article.articleId })
       }
     }
   }

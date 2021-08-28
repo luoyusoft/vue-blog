@@ -28,7 +28,7 @@ export default {
   data () {
     return {
       article: {
-        'id': 1,
+        'articleId': 1,
         'title': '被太阳晒过的风 第四十四章',
         'author': '子夜晨星',
         'publish_time': '2017/10/22 17:57:08',

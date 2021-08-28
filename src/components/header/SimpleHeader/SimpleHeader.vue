@@ -181,9 +181,7 @@ export default {
       }
     },
     listCategorys () {
-      let params = {}
-      params.module = ''
-      this.$http.listCategorys(params).then((response) => {
+      this.$http.listCategorys().then((response) => {
         if (response && response.code === 200) {
           response.data.forEach(category => {
             if (category.module === 0) {
@@ -192,8 +190,8 @@ export default {
               this.videoCategoryList.push(category)
             }
           })
-          this.articleCategoryList = treeDataTranslate(this.articleCategoryList)
-          this.videoCategoryList = treeDataTranslate(this.videoCategoryList)
+          this.articleCategoryList = treeDataTranslate(this.articleCategoryList, 'categoryId')
+          this.videoCategoryList = treeDataTranslate(this.videoCategoryList, 'categoryId')
         }
       })
     },
